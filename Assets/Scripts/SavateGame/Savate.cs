@@ -33,10 +33,10 @@ namespace SavateGame
 
             Color color1 = colorPick[Random.Range(0, colorPick.Count)];
             colorPick.Remove(color1);
-            rendererGO.GetComponent<MeshRenderer>().materials[0].SetColor("_Color" ,color1);
+            rendererGO.GetComponent<Renderer>().materials[0].SetColor("_Color" ,color1);
             Color color2 = colorPick[Random.Range(0, colorPick.Count)];
             colorPick.Remove(color2);
-            rendererGO.GetComponent<MeshRenderer>().materials[1].SetColor("_Color", color2);
+            rendererGO.GetComponent<Renderer>().materials[1].SetColor("_Color", color2);
 
         }
 

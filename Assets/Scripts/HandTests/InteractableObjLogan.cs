@@ -14,7 +14,7 @@ namespace LoganTools
 
         Vector3 initPos;
         Vector3 currentPos;
-        float yThreshold = 0.07f;
+        public float yThreshold = 0.07f;
         float distance;
 
         bool pressed;
@@ -72,16 +72,7 @@ namespace LoganTools
             OnEndContact.Invoke();
         }
 
-        private void OnDrawGizmos()
-        {
-            if (debug)
-            {
-                Gizmos.DrawWireCube(initPos, new Vector3(0.01f, 0.01f, 0.01f));
-                Gizmos.DrawWireCube(currentPos, new Vector3(0.01f, 0.01f, 0.01f));
-                Handles.Label(transform.position, distance.ToString());
-            }
-           
-        }
+       
 
         public void PressButton()
         {
@@ -152,6 +143,26 @@ namespace LoganTools
                 }
             }
            
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (debug)
+            {
+                Gizmos.DrawWireCube(initPos, new Vector3(0.01f, 0.01f, 0.01f));
+                Gizmos.DrawWireCube(currentPos, new Vector3(0.01f, 0.01f, 0.01f));
+
+                if (distance > yThreshold)
+                {
+                    Handles.Label(transform.position, "ok  "  + distance.ToString());
+
+                }
+                else
+                    Handles.Label(transform.position, "not ok" + distance.ToString());
+
+
+            }
+
         }
     }
 

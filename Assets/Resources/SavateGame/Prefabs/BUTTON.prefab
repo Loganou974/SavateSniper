@@ -98,7 +98,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Sky
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 1491251062417607299}
   - component: {fileID: 1491251062417607298}
   - component: {fileID: 1491251062417607296}
-  - component: {fileID: 1491251062417607357}
   m_Layer: 0
   m_Name: ButtonToPress
   m_TagString: Untagged
@@ -232,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491251062417607307}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0031430721, y: -0.010582209, z: 0.024520874}
+  m_LocalPosition: {x: 0.00029996037, y: -0.032199427, z: 0.016800046}
   m_LocalScale: {x: 0.16767614, y: 0.07041157, z: 0.16767614}
   m_Children:
   - {fileID: 1491251062792114408}
@@ -329,7 +328,7 @@ SpringJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0034419107, y: 1.7878783, z: 0.022409284}
+  m_ConnectedAnchor: {x: -0.0132273, y: 1.3189424, z: -0.004163708}
   serializedVersion: 2
   m_Spring: 2
   m_Damper: 0
@@ -596,27 +595,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1818360608 &1491251062417607357
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491251062417607307}
-  m_Enabled: 1
-  m_Weight: 1
-  m_TranslationAtRest: {x: -0.339, y: 1.1322, z: -0.849}
-  m_TranslationOffset: {x: 0, y: 0.043655157, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 0
-  m_AffectTranslationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 1491251062792114408}
-    weight: 1
-  - sourceTransform: {fileID: 1491251061736251899}
-    weight: 1
 --- !u!1 &1491251062495432500
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,8 +659,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491251062546387316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.07221782, z: 0}
-  m_LocalScale: {x: 0.23158741, y: 0.036465753, z: 0.23158741}
+  m_LocalPosition: {x: 0, y: 0.0565, z: 0}
+  m_LocalScale: {x: 0.23158741, y: 0.014139595, z: 0.23158741}
   m_Children: []
   m_Father: {fileID: 1491251062495432503}
   m_RootOrder: 1
@@ -823,8 +801,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491251062958353061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.17078221, z: 0}
-  m_LocalScale: {x: 0.23158741, y: 0.036465753, z: 0.23158741}
+  m_LocalPosition: {x: 0, y: -0.23, z: 0}
+  m_LocalScale: {x: 0.23158741, y: 0.014754043, z: 0.23158741}
   m_Children: []
   m_Father: {fileID: 1491251062495432503}
   m_RootOrder: 2
