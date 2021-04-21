@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnOnGrab : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject source;
     public bool autoDestroy = true;
     public float autoDestroyTime = 2;
 
@@ -15,12 +15,13 @@ public class Spawner : MonoBehaviour
     protected virtual void Awake()
     {
         if (spawnTransform == null) spawnTransform = transform;
-        
+
     }
     public virtual void Spawn()
     {
-        GameObject newObj = Instantiate(prefab, spawnTransform.position, spawnTransform.rotation) as GameObject;
-        
+        Debug.Log("Spawning");
+        GameObject newObj = Instantiate(source, spawnTransform.position, spawnTransform.rotation) as GameObject;
+
         newObj.transform.SetParent(parent);
         if (autoDestroy) Destroy(newObj, autoDestroyTime);
     }

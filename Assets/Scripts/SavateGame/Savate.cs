@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Animations.Rigging;
 
 namespace SavateGame
 {
@@ -11,18 +12,44 @@ namespace SavateGame
         private List<Color> colorPick;
         public GameObject rendererGO;
         XRGrabInteractable grabScript;
+        public Transform rigTransform;
+        DampedTransform[] dampedTransforms;
+        Rigidbody rb;
+
+        bool floppyMoveAlreadyActivated;
 
         public bool dropOnImpact = true;
         void Start()
         {
             grabScript = GetComponent<XRGrabInteractable>();
+            rb = GetComponent<Rigidbody>();
+
+            dampedTransforms = rigTransform.GetComponentsInChildren<DampedTransform>();
+
             RandomColor();
+        }
+
+       void FloppyMovement(bool state)
+        {
+            for (int i = 0; i < dampedTransforms.Length; i++)
+            {
+                dampedTransforms[i].data.maintainAim = state;
+            }
+
+            floppyMoveAlreadyActivated = state;
         }
 
         // Update is called once per frame
         void Update()
         {
-          
+
+            //if player grabs me and i'm not floppy activated
+            if (rb.isKinematic && !floppyMoveAlreadyActivated)
+            {
+                //player grabs me
+                FloppyMovement(true);
+            }
+            else if(!rb.isKinematic) FloppyMovement(false);
         }
 
         void RandomColor()

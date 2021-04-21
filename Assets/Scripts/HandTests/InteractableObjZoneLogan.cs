@@ -26,21 +26,19 @@ namespace LoganTools
 
         private void OnTriggerEnter(Collider other)
         {
-
-            if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+            Debug.Log("I detect");
+            if (other.GetComponent<InteractableObjLogan>() != null)
             {
-                Debug.Log("BeginHover");
-                interactableObj.OnBeginHover.Invoke();
+                Debug.Log("I detect interactable obj");
+                if (other.GetComponent<InteractableObjLogan>()  == interactableObj)
+                {
+                    Debug.Log("I detect interact obj that is mine");
+                    interactableObj.PressButton();
+                }
+                
             }
         }
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
-            {
-                Debug.Log("EndHover");
-                interactableObj.OnEndHover.Invoke();
-            }
-        }
+      
     } 
 }

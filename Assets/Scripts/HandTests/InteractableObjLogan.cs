@@ -10,9 +10,11 @@ namespace LoganTools
     public class InteractableObjLogan : MonoBehaviour
     {
         //public Collider hoverTrigger;
+        public InteractableObjZoneLogan activateZone;
         public bool debug;
 
         Vector3 initPos;
+        Vector2 contactPos;
         Vector3 currentPos;
         public float yThreshold = 0.07f;
         float distance;
@@ -24,6 +26,7 @@ namespace LoganTools
         AudioSource audioSource;
         public GameObject particleFB;
         private XRController xr;
+
 
 
         public UnityEvent OnBeginHover, OnEndHover, OnBeginContact, OnEndContact, OnButtonPressed;
@@ -40,35 +43,29 @@ namespace LoganTools
             //hide particles
             particleFB.SetActive(false);
 
-         
+
+            if (activateZone != null) activateZone.Init(this);
+            else Debug.LogWarning("You should set the ActivateZone GO, Button wont trigger OnButtonPressed without it.");
         }
 
         private void Start()
         {
             initPos = transform.position;
+          //  contactPos = initPos;
         }
 
-        private void Update()
-        {
-            currentPos = transform.position;
-            distance = Vector3.Distance(initPos, currentPos);
-         //   Debug.Log("Distance  : " +  distance);
-            if (distance > yThreshold && !pressed)
-            {
-                PressButton();
-                Debug.Log("ButtonPressed");
-
-            }
-        }
+      
 
         private void OnCollisionEnter(Collision collision)
         {
+         
             OnBeginContact.Invoke();
             
         }
 
         private void OnCollisionExit(Collision collision)
         {
+           
             OnEndContact.Invoke();
         }
 
@@ -93,6 +90,7 @@ namespace LoganTools
 
         IEnumerator PressingAndReleasing()
         {
+            Debug.Log("button pressed");
             //Activate particle
             particleFB.SetActive(true);
 
@@ -145,25 +143,7 @@ namespace LoganTools
            
         }
 
-        private void OnDrawGizmos()
-        {
-            if (debug)
-            {
-                Gizmos.DrawWireCube(initPos, new Vector3(0.01f, 0.01f, 0.01f));
-                Gizmos.DrawWireCube(currentPos, new Vector3(0.01f, 0.01f, 0.01f));
-
-                if (distance > yThreshold)
-                {
-                    Handles.Label(transform.position, "ok  "  + distance.ToString());
-
-                }
-                else
-                    Handles.Label(transform.position, "not ok" + distance.ToString());
-
-
-            }
-
-        }
+     
     }
 
 }
